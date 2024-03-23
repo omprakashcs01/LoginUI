@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
-  
 } from 'react-native';
 import React from 'react';
 import Background from './Background';
@@ -17,9 +16,7 @@ import {darkGreen} from '../constants';
 
 const SignUp = props => {
   return (
-  
     <Background>
-        
       <View style={{alignItems: 'center', width: 400}}>
         <Text
           style={{
@@ -47,12 +44,8 @@ const SignUp = props => {
             borderTopLeftRadius: 150,
             paddingTop: 100,
             alignItems: 'center',
-            
           }}>
-          <InputText
-            placeholder="First Name"
-            keyboardType={'email-address'}
-          />
+          <InputText placeholder="First Name" keyboardType={'email-address'} />
           <InputText placeholder="Last Name" />
           <InputText placeholder="Contact Number" keyboardType={'number-pad'} />
           <InputText placeholder="Password" secureTextEntry={true} />
@@ -68,7 +61,7 @@ const SignUp = props => {
             <Text style={{color: 'grey', fontWeight: 'bold', fontSize: 14}}>
               by signing in, you are to agree to our{' '}
             </Text>
-            
+
             <TouchableOpacity>
               <Text
                 style={{color: darkGreen, fontWeight: 'bold', fontSize: 15}}>
@@ -76,20 +69,24 @@ const SignUp = props => {
               </Text>
             </TouchableOpacity>
           </View>
-          <View style={{     display: 'flex',
+          <View
+            style={{
+              display: 'flex',
               flexDirection: 'row',
               width: '50%',
-            
-              marginBottom :10 ,
-              justifyContent: 'center'    }}>
-          <Text style={{color: 'grey', fontWeight: 'bold', fontSize: 14}}>
-            and{' '}
-          </Text>
-          <TouchableOpacity>
-            <Text style={{color: darkGreen, fontWeight: 'bold', fontSize: 15}}>
-              Privacy policy{' '}
+
+              marginBottom: 10,
+              justifyContent: 'center',
+            }}>
+            <Text style={{color: 'grey', fontWeight: 'bold', fontSize: 14}}>
+              and{' '}
             </Text>
-          </TouchableOpacity>
+            <TouchableOpacity>
+              <Text
+                style={{color: darkGreen, fontWeight: 'bold', fontSize: 15}}>
+                Privacy policy{' '}
+              </Text>
+            </TouchableOpacity>
           </View>
           <Btn
             textColor="white"
@@ -124,7 +121,6 @@ const SignUp = props => {
         </View>
       </View>
     </Background>
-    
   );
 };
 
