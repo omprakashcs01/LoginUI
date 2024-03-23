@@ -33,7 +33,7 @@ const Login = (props) => {
           <Text style={{fontSize: 19, fontWeight: 'bold', marginBottom: 20}}>
             Login Your account
           </Text>
-          <InputText placeholder="Email" keyboardType={'email - address'} />
+          <InputText placeholder="Email" keyboardType={'email-address'} />
           <InputText placeholder="Password" secureTextEntry = {true} />
 
           <View style = {{alignItems: 'flex-end' , width: '50%', marginLeft: 25,

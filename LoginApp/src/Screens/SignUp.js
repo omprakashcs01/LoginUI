@@ -7,7 +7,7 @@ import {
   StyleSheet,
   Alert,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import Background from './Background';
 
 import Btn from '../btn';
@@ -15,6 +15,40 @@ import InputText from '../InputText';
 import {darkGreen} from '../constants';
 
 const SignUp = props => {
+  const [name, setName] = useState('');
+  const [nameVerify, setNameVerify] = useState(false);
+  const [email, setEmail] = useState('');
+  const [emailVerify, setEmailVerify] = useState(false);
+  const [password, setPassword] = useState('');
+  const [passwordVerify, setPasswordVerify] = useState(false);
+  const [error, setError] = useState({});
+  const [lastName, setLastName] = useState('');
+  const [phone, setPhone] = useState('');
+
+  const ValidateForm = () => {
+    let errors = {};
+
+    if (!name) errors.name = 'Name must be provided';
+    if (!lastName) errors.lastName = 'Last name must';
+    if (!password) errors.password = ' Password must be provided';
+    if (!phone) errors.phone = 'Contact Number must  be provided';
+
+    setError(errors);
+
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleSubmit = () => {
+    if (ValidateForm()) {
+      setName('');
+      setLastName('');
+      setPassword('');
+      setPhone('');
+
+      setError({});
+    }
+  };
+
   return (
     <Background>
       <View style={{alignItems: 'center', width: 400}}>
@@ -34,7 +68,7 @@ const SignUp = props => {
             marginBottom: 20,
             fontWeight: 'bold',
           }}>
-          Create a new account
+          Create a new account {name}
         </Text>
         <View
           style={{
@@ -42,15 +76,50 @@ const SignUp = props => {
             height: 700,
             width: 470,
             borderTopLeftRadius: 150,
-            paddingTop: 100,
+            paddingTop: 50,
             alignItems: 'center',
           }}>
-          <InputText placeholder="First Name" keyboardType={'email-address'} />
-          <InputText placeholder="Last Name" />
-          <InputText placeholder="Contact Number" keyboardType={'number-pad'} />
-          <InputText placeholder="Password" secureTextEntry={true} />
-          <InputText placeholder="Conform Password" />
-
+          <InputText
+            placeholder="First Name"
+            keyboardType={'email-address'}
+            value={name}
+            onChangeText={setName}
+          />
+          {error.name ? <Text style={{color: 'red'}}>{error.name}</Text> : null}
+          <InputText
+            placeholder="Last Name"
+            value={lastName}
+            onChangeText={setLastName}
+          />
+          {error.lastName ? (
+            <Text style={{color: 'red'}}>{error.lastName}</Text>
+          ) : null}
+          <InputText
+            placeholder="Contact Number"
+            keyboardType={'number-pad'}
+            value={phone}
+            onChangeText={setPhone}
+          />
+          {error.phone ? (
+            <Text style={{color: 'red'}}>{error.phone}</Text>
+          ) : null}
+          <InputText
+            placeholder="Password"
+            secureTextEntry={true}
+            value={password}
+            onChangeText={setPassword}
+          />
+          {error.password ? (
+            <Text style={{color: 'red'}}>{error.password}</Text>
+          ) : null}
+          <InputText
+            placeholder="Conform Password"
+            value={password}
+            onChangeText={setPassword}
+          />
+          {error.password ? (
+            <Text style={{color: 'red'}}>{error.password}</Text>
+          ) : null}
           <View
             style={{
               display: 'flex',
@@ -92,10 +161,7 @@ const SignUp = props => {
             textColor="white"
             bgColor={darkGreen}
             btnText="SignUp"
-            press={() => {
-              Alert.alert('Alert Title', 'My Alert Msg');
-              props.navigation.navigate('Login');
-            }}
+            press={handleSubmit}
           />
           <View
             style={{
@@ -125,5 +191,3 @@ const SignUp = props => {
 };
 
 export default SignUp;
-
-const styles = StyleSheet.create({});
