@@ -5,7 +5,8 @@ import {
   Touchable,
   TouchableOpacity,
   StyleSheet,
-
+  Alert,
+  
 } from 'react-native';
 import React from 'react';
 import Background from './Background';
@@ -50,7 +51,7 @@ const SignUp = props => {
           }}>
           <InputText
             placeholder="First Name"
-            keyboardType={'email - address'}
+            keyboardType={'email-address'}
           />
           <InputText placeholder="Last Name" />
           <InputText placeholder="Contact Number" keyboardType={'number-pad'} />
