@@ -6,7 +6,7 @@ const InputText = (props) => {
   return (
 <TextInput 
  {...props} style ={{borderRadius: 100,
- color: darkGreen , borderWidth: 2, paddingHorizontal:10,
+ color: darkGreen , paddingHorizontal:10,
   width: '60%',
    backgroundColor: 'rgb(220, 220, 220)',
    marginVertical: 10
