@@ -42,7 +42,7 @@ const ForgetPassword = props => {
             Enter your email address below and we'll {'\n'} send you a link to
             reset your password.
           </Text>
-          <InputText placeholder="Email" keyboardType={'email - address'} />
+          <InputText placeholder="Email" keyboardType={'email-address'} />
 
           <View
             style={{
